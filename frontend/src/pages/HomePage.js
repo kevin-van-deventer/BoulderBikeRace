@@ -100,8 +100,9 @@ const HomePage = () => {
                     <h2 className="new-section-header">Register Today - <span className="highlight">10% Discount</span></h2>
                     <p className="new-section-paragraph3">
                     Registartions are now <span className="highlight">Open </span> 
-                    until <span className="highlight">1 of April</span> or register at the Event.
+                    until <span className="highlight">1 April</span> or register at the Event.
                     </p>
+                    <button className="regButton">Register Via Email</button>
                     {/* <div className="new-section-cards">
                         <div className="card">
                             <h3>Kids</h3>

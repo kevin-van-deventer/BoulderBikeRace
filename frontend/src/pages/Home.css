@@ -292,6 +292,17 @@
   transition: background-color 0.3s ease;
 }
 
+.regButton {
+  background-color: orange;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: rgb(2, 2, 2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .card button:hover {
   background-color: orange;
 }
