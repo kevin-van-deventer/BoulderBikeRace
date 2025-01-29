@@ -37,12 +37,13 @@
 }
 
 .title {
-  font-size: 7rem;
+  font-size: clamp(2rem, 10vw, 7rem);
   font-weight: bold;
   text-shadow: 0px 0px 50px rgb(0, 0, 0),
     /* Larger main shadow */ 32px 32px 20px rgba(0, 0, 0, 0.5),
     /* Additional depth */ 8px 8px 30px rgb(0, 0, 0);
   color: #ffffff;
+  text-align: center;
 }
 
 /* Countdown container styling */

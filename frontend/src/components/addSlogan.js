@@ -14,12 +14,29 @@ const AddSlogan = ({ addSlogan }) => {
     setFormData({ ...formData, [name]: value });
   };
 
+  // Email validation function
+  const isValidEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.first_name || !formData.last_name || !formData.email || !formData.slogan) {
       setError("All fields are required!");
       return;
     }
+
+    if (formData.slogan.length > 50) {
+      setError("Slogan should not exceed 50 characters!");
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
+      setError("Please enter a valid email address!");
+      return;
+    }
+
     setError("");
     try {
       await addSlogan(formData);

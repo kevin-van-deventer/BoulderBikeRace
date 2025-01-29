@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 
-const Submission = ({ submissions }) => {
+const Submission = ({ submissions, error }) => {
         return (
             <div className='submissionForm'>
                 <div className='sloganContainer'>
                     <h1 className="gallerytitle"><span className="highlight">Top Rated Slogans</span></h1>
-                        {/* <h2 className="ridersTitle"><span class="highlight">Slogan Competition</span></h2> */}
                 </div>
+
+                {/* Display error message if exists */}
+                {error && <p className="error-message">{error}</p>}
+
                 <div className="ridersGrid">
                     {submissions.map((submission) => (
                         <div key={submission.id} className="riderCard">

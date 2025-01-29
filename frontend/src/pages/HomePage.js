@@ -8,7 +8,7 @@ import CountdownTimer from "../components/CountdownTimer";
 
 import raceVideo from '../assets/race.mp4';
 import map from '../assets/map.jpg';
-import boulderLogo from "../assets/boulder_logo.svg";
+// import boulderLogo from "../assets/boulder_logo.svg";
 
 const HomePage = () => {
     return(
@@ -19,7 +19,10 @@ const HomePage = () => {
                     Your browser does not support the video tag.
                 </video>
                 <header className="App-header">
-                    <h1 className="title">Boulder Bike Race</h1>
+                <h1 className="title">
+                    Boulder <br />
+                    Bike Race
+                </h1>
                     {/* <img src={boulderLogo} alt="Boulder Bike Tour Logo" className="logo" /> */}
                 </header>
                 {/* {error && <div className="error-message">{error}</div>} */}
@@ -99,7 +102,7 @@ const HomePage = () => {
                     Registartions are now <span className="highlight">Open </span> 
                     until <span className="highlight">1 of April</span> or register at the Event.
                     </p>
-                    <div className="new-section-cards">
+                    {/* <div className="new-section-cards">
                         <div className="card">
                             <h3>Kids</h3>
                             <p>6 - 17 yrs<br />$15</p>
@@ -115,7 +118,7 @@ const HomePage = () => {
                             <p>60+ yrs<br />$25</p>
                             <button>Buy Now</button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
