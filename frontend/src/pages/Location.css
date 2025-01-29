@@ -1,0 +1,21 @@
+.locationTitle {
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 0px 0px 100px rgba(0, 0, 0, 0.726),
+    16px 16px 16px rgba(0, 0, 0, 0.5), 8px 8px 30px rgba(0, 0, 0, 0.507);
+}
+
+.locations-page {
+  padding: 20px;
+  text-align: center;
+  width: 70%;
+}
+
+.locations-page h1 {
+  margin-bottom: 20px;
+}
+
+.leaflet-container {
+  border: 20px solid #050505;
+  border-radius: 20px;
+}

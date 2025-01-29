@@ -1,0 +1,117 @@
+.slogan-container {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-image: url(../assets/slogancom.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+  text-align: center;
+  /* max-width: 1200px; */
+}
+.riders-section {
+  /* position: relative; */
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+  /* background-image: url(../assets/road_bg1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+.submissionForm {
+  width: 80%;
+  margin: auto;
+}
+
+.addSlogan {
+  background: linear-gradient(to bottom right, rgb(55, 9, 9), rgb(0, 0, 0));
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  margin-top: 50px;
+}
+
+.addSlogan h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.sloganForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 80%;
+}
+
+.formGroup label {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  display: block;
+}
+
+.formGroup textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border: 1px solid orange;
+  outline: none;
+  background-color: #fff;
+}
+
+.submitBtn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: white;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitBtn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.submitBtn:active {
+  transform: translateY(1px);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: bold;
+}

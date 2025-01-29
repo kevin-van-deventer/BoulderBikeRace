@@ -1,0 +1,125 @@
+import React from "react";
+// import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+import '../pages/Home.css';
+
+
+import CountdownTimer from "../components/CountdownTimer";
+
+import raceVideo from '../assets/race.mp4';
+import map from '../assets/map.jpg';
+import boulderLogo from "../assets/boulder_logo.svg";
+
+const HomePage = () => {
+    return(
+        <div className="home" >
+            <div className="home-container">
+                <video className="background-video" autoPlay loop muted>
+                    <source src={raceVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <header className="App-header">
+                    <h1 className="title">Boulder Bike Race</h1>
+                    {/* <img src={boulderLogo} alt="Boulder Bike Tour Logo" className="logo" /> */}
+                </header>
+                {/* {error && <div className="error-message">{error}</div>} */}
+                <div className="countdown-container">
+                    <CountdownTimer targetDate={new Date("2025-04-01T00:00:00")} />
+                </div>
+            </div>
+
+            <div className="new-section">
+                <div className="new-section-row">
+                    <div className="new-section-left">
+                    <img 
+                        src={map} 
+                        alt="Map" 
+                        className="map-image"
+                    />
+                    </div>
+
+                    <div className="new-section-right">
+                    <div className="card">
+                        <h3 className="card-title"><span className="highlight">Contestants</span></h3>
+                        <p className="card-paragraph">
+                        Join the bike race to stand a chance to win big this year.
+                        </p>
+                    </div>
+                    <div className="card">
+                        <h3 className="card-title"><span className="highlight">Slogan Contest</span></h3>
+                        <p className="card-paragraph">
+                        Cycle into the slogan competition and win a new Scott 25A Bicycle.
+                        </p>
+                    </div>
+                    <div className="card">
+                        <h3 className="card-title"><span className="highlight">Gallery</span></h3>
+                        <p className="card-paragraph">
+                        Visit our gallery page to experience previous years races and see what youre missing out on.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+                
+            <div className="new-section2">
+                <div className="new-section-content">
+                    <h2 className="new-section-header">Ride Boulder at its Best</h2>
+                    <p className="new-section-paragraph2">
+                    Pedal alongside your fellow riders and experience the thrill of cycling at the foot of the majestic Rocky Mountains. 
+                    Renowned for its breathtaking landscapes and high-altitude challenge, the <span className="highlight">Boulder Bike Tour </span> 
+                     offers an unparalleled backdrop for this prestigious event. As you conquer the scenic roads of Colorado, 
+                    you'll be immersed in the stunning natural beauty, from rolling hills to panoramic mountain views. 
+                    Join us for the <span className="highlight">Boulder Bike Tour</span> and be part of a decade-long tradition of endurance, 
+                    excitement, and inspiration!
+                    </p>
+                    <div className="new-section-cards">
+                        <div className="card">
+                            <h3>Road Races</h3>
+                            <p>97 / 35km<br />April 1, 2025</p>
+                            <button>More Info</button>
+                        </div>
+                        <div className="card">
+                            <h3>Mountain Bike Races</h3>
+                            <p>10 / 25 / 50km<br />April 1, 2025</p>
+                            <button>More Info</button>
+                        </div>
+                        <div className="card">
+                            <h3>Kids Races</h3>
+                            <p>1 / 1.5 / 3 / 5.5km<br />April 1, 2025</p>
+                            <button>More Info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="new-section3">
+                <div className="new-section-content">
+                    <h2 className="new-section-header">Register Today - <span className="highlight">10% Discount</span></h2>
+                    <p className="new-section-paragraph3">
+                    Registartions are now <span className="highlight">Open </span> 
+                    until <span className="highlight">1 of April</span> or register at the Event.
+                    </p>
+                    <div className="new-section-cards">
+                        <div className="card">
+                            <h3>Kids</h3>
+                            <p>6 - 17 yrs<br />$15</p>
+                            <button>Buy Now</button>
+                        </div>
+                        <div className="card">
+                            <h3>Adults</h3>
+                            <p>18 - 59 yrs<br />$40</p>
+                            <button>Buy Now</button>
+                        </div>
+                        <div className="card">
+                            <h3>Pensioners</h3>
+                            <p>60+ yrs<br />$25</p>
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        );
+    };
+    
+export default HomePage;
