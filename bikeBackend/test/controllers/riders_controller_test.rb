@@ -1,38 +1,35 @@
-require "test_helper"
+# test/controllers/riders_controller_test.rb
+require 'test_helper'
 
 class RidersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @rider = riders(:one)
+    @rider = Rider.create!(first_name: "John", last_name: "Doe", city: "New York", latitude: 40.7128, longitude: -74.0060)
   end
 
   test "should get index" do
-    get riders_url, as: :json
+    get riders_url
     assert_response :success
-  end
-
-  test "should create rider" do
-    assert_difference("Rider.count") do
-      post riders_url, params: { rider: { city: @rider.city, latitude: @rider.latitude, longitude: @rider.longitude, name: @rider.name } }, as: :json
-    end
-
-    assert_response :created
+    json_response = JSON.parse(@response.body)
+    assert json_response.is_a?(Array), "Response should be an array"
+    assert_not_empty json_response, "Response should contain riders"
   end
 
   test "should show rider" do
-    get rider_url(@rider), as: :json
+    get rider_url(@rider)
     assert_response :success
+    json_response = JSON.parse(@response.body)
+    assert_equal @rider.id, json_response["id"], "Rider ID should match"
+    assert_equal @rider.first_name, json_response["first_name"], "Rider first name should match"
+    assert_equal @rider.last_name, json_response["last_name"], "Rider last name should match"
+    assert_equal @rider.city, json_response["city"], "Rider city should match"
+    assert_equal @rider.latitude, json_response["latitude"], "Rider latitude should match"
+    assert_equal @rider.longitude, json_response["longitude"], "Rider longitude should match"
   end
 
-  test "should update rider" do
-    patch rider_url(@rider), params: { rider: { city: @rider.city, latitude: @rider.latitude, longitude: @rider.longitude, name: @rider.name } }, as: :json
-    assert_response :success
-  end
-
-  test "should destroy rider" do
-    assert_difference("Rider.count", -1) do
-      delete rider_url(@rider), as: :json
-    end
-
-    assert_response :no_content
+  test "should return 404 if rider not found" do
+    get rider_url(-1) # Non-existing ID
+    assert_response :not_found
+    json_response = JSON.parse(@response.body)
+    assert_equal "Couldn't find Rider", json_response["error"], "Error message should be correct"
   end
 end

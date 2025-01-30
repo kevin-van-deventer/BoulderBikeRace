@@ -9,6 +9,7 @@
   padding: 20px;
   text-align: center;
   width: 70%;
+  z-index: 1;
 }
 
 .locations-page h1 {
