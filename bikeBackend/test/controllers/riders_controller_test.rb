@@ -27,9 +27,9 @@ class RidersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should return 404 if rider not found" do
-    get rider_url(-1) # Non-existing ID
+    get rider_url(-1), as: :json # Non-existing ID
     assert_response :not_found
     json_response = JSON.parse(@response.body)
-    assert_equal "Couldn't find Rider", json_response["error"], "Error message should be correct"
+    assert_equal "Not Found", json_response["error"], "Error message should be correct"
   end
 end

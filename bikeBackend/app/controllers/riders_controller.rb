@@ -1,15 +1,16 @@
 class RidersController < ApplicationController
+
     def index
-    @riders = Rider.all
-    render json: @riders
-  end
+      @riders = Rider.all
+      render json: @riders
+    end
 
   def show
     @rider = Rider.find(params[:id])
     if @rider
       render json: @rider
     else
-      render json: { error: "Couldn't find Rider" }, status: :not_found
+      render json: { error: "Not Found" }, status: :not_found
     end
   end
 
