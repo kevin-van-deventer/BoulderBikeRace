@@ -1,5 +1,5 @@
 class Submission < ApplicationRecord
-    before_validation :sanitize_inputs # Sanitize before validations
+    before_validation :sanitize_inputs
   
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

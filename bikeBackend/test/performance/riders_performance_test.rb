@@ -1,9 +1,8 @@
-# test/performance/riders_performance_test.rb
 require "test_helper"
 
 class RidersPerformanceTest < ActionDispatch::IntegrationTest
   setup do
-    Rider.delete_all # Ensure a clean test database
+    Rider.delete_all #clean test database
   end
 
   test "handle 100 rider signups without slowing down" do

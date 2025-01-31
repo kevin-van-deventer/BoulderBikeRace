@@ -1,5 +1,3 @@
-
-
 class Rider < ApplicationRecord
 
     before_save :sanitize_inputs

@@ -1,4 +1,3 @@
-# test/controllers/riders_controller_test.rb
 require 'test_helper'
 
 class RidersControllerTest < ActionDispatch::IntegrationTest

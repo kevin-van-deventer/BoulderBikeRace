@@ -1,4 +1,3 @@
-# test/controllers/submissions_controller_test.rb
 require 'test_helper'
 
 class SubmissionsControllerTest < ActionDispatch::IntegrationTest

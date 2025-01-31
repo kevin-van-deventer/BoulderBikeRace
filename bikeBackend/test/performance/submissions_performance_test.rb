@@ -2,7 +2,7 @@ require "test_helper"
 
 class SubmissionsPerformanceTest < ActionDispatch::IntegrationTest
   setup do
-    Submission.delete_all # Ensure a clean slate
+    Submission.delete_all
   end
 
   test "handle 100 submissions without slowing down" do

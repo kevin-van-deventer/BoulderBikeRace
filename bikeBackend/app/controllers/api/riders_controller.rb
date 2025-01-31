@@ -44,7 +44,7 @@ class Api::RidersController < ApplicationController
       @rider = Rider.find(params.expect(:id))
     end
 
-    # Only allow a list of trusted parameters through.
+    # Only allow a list of parameters through.
     def rider_params
       params.require(:rider).permit(:first_name, :last_name, :city, :latitude, :longitude)
     end
