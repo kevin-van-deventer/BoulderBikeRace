@@ -9,9 +9,9 @@ class RidersPerformanceTest < ActionDispatch::IntegrationTest
   test "handle 100 rider signups without slowing down" do
     100.times do |i|
       post riders_url, params: { rider: {
-        first_name: "Rider#{i}",
+        first_name: "Rider",
         last_name: "User",
-        city: "City#{i}",
+        city: "City",
         latitude: 40.7128 + i * 0.001,
         longitude: -74.0060 + i * 0.001
       }}

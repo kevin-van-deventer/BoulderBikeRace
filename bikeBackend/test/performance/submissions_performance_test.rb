@@ -8,10 +8,10 @@ class SubmissionsPerformanceTest < ActionDispatch::IntegrationTest
   test "handle 100 submissions without slowing down" do
     100.times do |i|
       Submission.create!(
-        first_name: "Test#{i}",
+        first_name: "Test",
         last_name: "User",
         email: "test#{i}@example.com",
-        slogan: "Slogan number #{i}"
+        slogan: "Slogan number"
       )
     end
 
