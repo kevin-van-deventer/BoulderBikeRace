@@ -28,13 +28,13 @@ class RidersSecurityTest < ActionDispatch::IntegrationTest
   end
 
   test "should prevent invalid data from being saved" do
-    post api_riders_url, params: { rider: @invalid_rider.attributes }
+    post api_riders_url, params: { rider: @invalid_rider.attributes }, as: :json
   
     assert_response :unprocessable_entity
     json_response = JSON.parse(@response.body)
 
     puts "Debug: Response JSON => #{json_response.inspect}" # Keep this for further debugging if needed
-
+    puts "Debug: Full Response JSON => #{json_response.inspect}"
     assert json_response.is_a?(Hash), "Response should be a hash with field-specific errors"
 
     # Check for presence of each field before asserting

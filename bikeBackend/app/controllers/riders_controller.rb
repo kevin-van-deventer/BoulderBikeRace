@@ -19,8 +19,8 @@ class RidersController < ApplicationController
     if @rider.save
       render json: @rider, status: :created
     else
-      error_messages = @rider.errors.full_messages
-      render json: { errors: error_messages }, status: :unprocessable_entity
+      # error_messages = @rider.errors.full_messages
+      render json: { errors: rider.errors.messages }, status: :unprocessable_entity
     end
   end
 
