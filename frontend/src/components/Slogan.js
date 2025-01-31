@@ -4,7 +4,7 @@ const Submission = ({ submissions, error }) => {
         return (
             <div className='submissionForm'>
                 <div className='sloganContainer'>
-                    <h1 className="gallerytitle"><span className="highlight">Top Rated Slogans</span></h1>
+                    <h1 className="pageTitle">Top Rated Slogans</h1>
                 </div>
 
                 {/* Display error message if exists */}

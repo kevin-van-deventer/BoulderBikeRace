@@ -102,24 +102,7 @@ const HomePage = () => {
                     Registartions are now <span className="highlight">Open </span> 
                     until <span className="highlight">1 April</span> or register at the Event.
                     </p>
-                    <button className="regButton">Register Via Email</button>
-                    {/* <div className="new-section-cards">
-                        <div className="card">
-                            <h3>Kids</h3>
-                            <p>6 - 17 yrs<br />$15</p>
-                            <button>Buy Now</button>
-                        </div>
-                        <div className="card">
-                            <h3>Adults</h3>
-                            <p>18 - 59 yrs<br />$40</p>
-                            <button>Buy Now</button>
-                        </div>
-                        <div className="card">
-                            <h3>Pensioners</h3>
-                            <p>60+ yrs<br />$25</p>
-                            <button>Buy Now</button>
-                        </div>
-                    </div> */}
+                    <button className="regButton" onClick={() => window.location.href = "mailto:boulderrace@gmail.com?subject=Race Registration&body=Hello, I would like to register for the Boulder Bike Tour. (First Name) and (Last Name) and your (City) "}>Register Via Email</button>
                 </div>
             </div>
         </div>

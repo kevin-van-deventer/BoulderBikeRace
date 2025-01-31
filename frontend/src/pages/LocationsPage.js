@@ -39,7 +39,7 @@ const customIcon = new L.Icon({
 
   return (
     <div className="locations-page">
-      <h1 className="locationTitle"><span className="highlight">Riders' Locations</span></h1>
+      <h1 className="pageTitle">Riders' Locations</h1>
       {error && <div className="error-message">{error}</div>}
       
       <MapContainer

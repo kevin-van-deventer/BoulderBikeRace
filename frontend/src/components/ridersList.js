@@ -4,7 +4,7 @@ const RidersList = ({riders}) => {
 
     return (
         <div className="ridersContainer">
-            <h2 className="ridersTitle"><span className="highlight">Competitors</span></h2>
+            <h2 className="pageTitle">Competitors</h2>
             {/* <h1 className="title">Boulder Bike Tour</h1> */}
             <div className="ridersGrid">
                 {riders.map((rider) => (

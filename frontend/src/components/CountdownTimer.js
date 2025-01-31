@@ -30,8 +30,8 @@ function CountdownTimer({ targetDate }) {
   
     return (
       <div className="countdown-timer">
-        <h2>1 April 2025</h2>
-        <h3>Time Until Takeoff</h3>
+        <h2>Starts 1 April 2025 in</h2>
+        {/* <h3>Time Until Race</h3> */}
         <p className="timerTitle">
           {countdown.months} Months {countdown.days} Days 
           {countdown.hours} Hours {countdown.minutes} Minutes {countdown.seconds} Seconds

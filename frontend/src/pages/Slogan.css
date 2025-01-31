@@ -37,6 +37,13 @@
   margin-top: 50px;
 }
 
+@media (max-width: 1024px) {
+  /* Tablets and smaller screens */
+  .addSlogan {
+    width: 80%;
+  }
+}
+
 .addSlogan h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;

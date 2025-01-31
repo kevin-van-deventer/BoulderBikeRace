@@ -55,7 +55,7 @@ const PhotosPage = () => {
   return (
     <div className="app-container">
       <div className="photo-page">
-      <h1 className="gallerytitle"><span className="highlight">Gallery</span></h1>
+      <h1 className="pageTitle">Gallery</h1>
 
         {error && <div className="error">{error}</div>}
 
