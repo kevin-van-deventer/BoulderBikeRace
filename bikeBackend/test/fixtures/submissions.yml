@@ -1,13 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+valid_submission:
+  first_name: "John"
+  last_name: "Doe"
+  email: "john.doe@example.com"
+  slogan: "Best slogan ever!"
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  slogan: MyString
+invalid_submission:
+  first_name: ""
+  last_name: ""
+  email: "invalid-email"
+  slogan: ""
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  slogan: MyString
+sql_injection_submission:
+  first_name: "Robert'); DROP TABLE submissions;--"
+  last_name: "Hacker"
+  email: "hacker@example.com"
+  slogan: "Hacked slogan"
+
+xss_submission:
+  first_name: "<script>alert('XSS');</script>"
+  last_name: "User"
+  email: "xss@example.com"
+  slogan: "<script>alert('XSS');</script>"

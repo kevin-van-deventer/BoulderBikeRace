@@ -2,28 +2,24 @@ require "test_helper"
 
 class SubmissionsSecurityTest < ActionDispatch::IntegrationTest
   setup do
-    Submission.delete_all # Ensure a clean test database
+    @valid_submission = submissions(:valid_submission)
+    @invalid_submission = submissions(:invalid_submission)
+    @sql_injection_submission = submissions(:sql_injection_submission)
+    @xss_submission = submissions(:xss_submission)
   end
 
   test "should prevent SQL injection in submission creation" do
-    post submissions_url, params: { submission: {
-      first_name: "Robert'); DROP TABLE submissions;--",
-      last_name: "Hacker",
-      email: "hacker@example.com",
-      slogan: "Hacked slogan"
-    }}
+    Submission.delete_all # Ensure a clean test database
+
+    assert_difference "Submission.count", 0 do
+      post submissions_url, params: { submission: @sql_injection_submission.attributes }
+    end
     
     assert_response :unprocessable_entity
-    assert Submission.count == 0, "Database should not be affected by SQL injection"
   end
 
   test "should prevent XSS attacks in submission input" do
-    post submissions_url, params: { submission: {
-      first_name: "<script>alert('XSS');</script>",
-      last_name: "User",
-      email: "xss@example.com",
-      slogan: "<script>alert('XSS');</script>"
-    }}
+    post submissions_url, params: { submission: @xss_submission.attributes }
   
     assert_response :unprocessable_entity # Expect validation to reject script tags
     json_response = JSON.parse(@response.body)
@@ -31,12 +27,7 @@ class SubmissionsSecurityTest < ActionDispatch::IntegrationTest
   end
 
   test "should prevent invalid data from being saved" do
-    post submissions_url, params: { submission: {
-      first_name: "",
-      last_name: "",
-      email: "invalid-email",
-      slogan: ""
-    }}
+    post submissions_url, params: { submission: @invalid_submission.attributes }
     
     assert_response :unprocessable_entity
     json_response = JSON.parse(@response.body)
