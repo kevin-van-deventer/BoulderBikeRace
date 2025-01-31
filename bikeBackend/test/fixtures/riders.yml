@@ -1,13 +1,29 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  city: MyString
-  latitude: 1.5
-  longitude: 1.5
+valid_rider:
+  first_name: "John"
+  last_name: "Doe"
+  city: "New York"
+  latitude: 40.7128
+  longitude: -74.0060
 
-two:
-  first_name: MyString
-  city: MyString
-  latitude: 1.5
-  longitude: 1.5
+invalid_rider:
+  first_name: ""
+  last_name: ""
+  city: ""
+  latitude: "invalid"
+  longitude: "invalid"
+
+sql_injection_rider:
+  first_name: "Robert'); DROP TABLE riders;--"
+  last_name: "Hacker"
+  city: "HackedCity"
+  latitude: 40.7128
+  longitude: -74.0060
+
+xss_rider:
+  first_name: "<script>alert('XSS');</script>"
+  last_name: "User"
+  city: "CityXSS"
+  latitude: 40.7128
+  longitude: -74.0060

@@ -54,3 +54,5 @@ Project - frontend (npm start) & bikeBackend (rails s)
   - test_should_prevent_XSS_attacks_in_submission_input PASS (0.35s)
   - test_should_prevent_SQL_injection_in_submission_creation PASS (0.03s)
   - test_should_prevent_invalid_data_from_being_saved PASS (0.04s)
+
+rails test
