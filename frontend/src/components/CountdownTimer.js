@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-function CountdownTimer({ targetDate }) {
+function CountdownTimer({ targetDate }) { // keeps track of the state of the countdown timer
     const [countdown, setCountdown] = useState({
       months: 0,
       days: 0,
@@ -14,18 +14,18 @@ function CountdownTimer({ targetDate }) {
       const now = new Date();
       const timeDifference = targetDate - now;
   
-      const months = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 30));
-      const days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+      const months = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 30)); // Divides timeDifference by the number of milliseconds in a month
+      const days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24)); // Divides it by milliseconds in an day
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Divides it by milliseconds in an hour
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60)); // Divides it by milliseconds in an min
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000); // Divides it by 1000 to get seconds.
   
       setCountdown({ months, days, hours, minutes, seconds });
     };
   
-    useEffect(() => {
+    useEffect(() => { // useEffect hook to update countdown every second
       const intervalId = setInterval(calculateCountdown, 1000);
-      return () => clearInterval(intervalId);
+      return () => clearInterval(intervalId); // Clear the interval when the component is unused/unmounted
     }, []);
   
     return (
@@ -33,8 +33,7 @@ function CountdownTimer({ targetDate }) {
         <h2>Starts 1 April 2025 in</h2>
         {/* <h3>Time Until Race</h3> */}
         <p className="timerTitle">
-          {countdown.months} Months {countdown.days} Days 
-          {countdown.hours} Hours {countdown.minutes} Minutes {countdown.seconds} Seconds
+          {countdown.months} Months {countdown.days} Days {countdown.hours} Hours {countdown.minutes} Minutes {countdown.seconds} Seconds
         </p>
       </div>
     );

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 
 // leaflet imports
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"; // components
 import { LatLng } from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import L from "leaflet"; // Import Leaflet to create custom icons
 
-import { get_riders } from '../api/endpoints';
+import { get_riders } from '../api/endpoints'; // get riders api to fetch rider data
 
 import '../pages/Location.css';
 
 
 const LocationsPage = () => {
-  const [riders, setRiders] = useState([]);
+  const [riders, setRiders] = useState([]); // stores list of riders
   const [error, setError] = useState("");
 
-  useEffect(() => {
+  useEffect(() => { // runs once when mounted
     const fetchData = async () => {
       try {
-        const ridersData = await get_riders();
-        setRiders(ridersData);
+        const ridersData = await get_riders(); // fetches rider data
+        setRiders(ridersData); // updates riders state if successful
       } catch (error) {
         setError("Error fetching riders data. Please try again.");
         console.error("Error fetching riders data:", error);

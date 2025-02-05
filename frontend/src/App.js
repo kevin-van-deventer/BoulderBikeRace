@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom"; // enable client-side page navigation
+// Enables smooth navigation without page reloads
 
 // Import pages
 import HomePage from "./pages/HomePage";
@@ -19,16 +20,16 @@ import './App.css';
 import { get_riders, get_submissions, create_slogan } from './api/endpoints';
 
 function App() {
-  const [riders, setRiders] = useState([]);
-  const [submissions, setSubmissions] = useState([]);
-  const [error, setError] = useState("");
+  const [riders, setRiders] = useState([]); // Stores bike rider data fetched from the API
+  const [submissions, setSubmissions] = useState([]); // Stores slogan submissions fetched from the API
+  const [error, setError] = useState(""); // Stores error message
 
 
-  useEffect(() => {
+  useEffect(() => { // runs once when app loads
     const fetchData = async () => {
       try {
-        const [ridersData, submissionsData] = await Promise.all([get_riders(), get_submissions()]);
-        setRiders(ridersData);
+        const [ridersData, submissionsData] = await Promise.all([get_riders(), get_submissions()]); // promise.all fetch riders and submissions in parallel
+        setRiders(ridersData); // stores fetched data in state
         setSubmissions(submissionsData);
       } catch (error) {
         setError("Error fetching data. Please try again.");
@@ -41,8 +42,8 @@ function App() {
 
   const addSlogan = async (newSloganData) => {
     try {
-      const newSlogan = await create_slogan(newSloganData);
-      setSubmissions((prevSubmissions) => [...prevSubmissions, newSlogan]);
+      const newSlogan = await create_slogan(newSloganData); // calls create function and sends to api
+      setSubmissions((prevSubmissions) => [...prevSubmissions, newSlogan]); // updates submission state without reloading the page
     } catch (error) {
       console.error("Error creating slogan:", error);
       throw error;
@@ -52,18 +53,15 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar />
-        {/* <div className="main-content"> */}
-        <Routes>
+        <NavBar />  {/* global components */}
+        <Routes> {/* wraps routes in router */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/slogans" element={<SloganPage submissions={submissions} addSlogan={addSlogan}/>} />
+          <Route path="/slogans" element={<SloganPage submissions={submissions} addSlogan={addSlogan}/>} /> {/*pass props to route/page */}
           <Route path="/riders" element={<BikeRidersPage riders={riders} />} />
           <Route path="/photos" element={<PhotosPage />} />
           <Route path="/locations" element={<LocationsPage />} /> 
           </Routes>
-          {/* </div> */}
         <Footer />
-        
       </div>
     </Router>
   );

@@ -1,10 +1,10 @@
 require 'test_helper'
-require 'mocha/minitest'
+require 'mocha/minitest' # mocking API calls
 require 'net/http'
 
 class PhotosControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @flickr_service_mock = mock()
+    @flickr_service_mock = mock() # mock object instead of call real api
     FlickrService.stubs(:new).returns(@flickr_service_mock)
   end
 
@@ -45,8 +45,8 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
       }
     }
     @flickr_service_mock.stubs(:fetch_photos).returns(sample_response)
-    PhotosController.any_instance.stubs(:image_broken?).with(regexp_matches(/1_/)).returns(false)
-    PhotosController.any_instance.stubs(:image_broken?).with(regexp_matches(/2_/)).returns(true)
+    PhotosController.any_instance.stubs(:image_broken?).with(regexp_matches(/1_/)).returns(false) # returns false and image is valid 1_
+    PhotosController.any_instance.stubs(:image_broken?).with(regexp_matches(/2_/)).returns(true) # returns true and image is broken 2_
 
     get photos_url
     assert_response :success

@@ -39,12 +39,10 @@ class Api::RidersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_rider
       @rider = Rider.find(params.expect(:id))
     end
 
-    # Only allow a list of parameters through.
     def rider_params
       params.require(:rider).permit(:first_name, :last_name, :city, :latitude, :longitude)
     end

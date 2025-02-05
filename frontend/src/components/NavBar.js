@@ -24,7 +24,7 @@ const NavBar = () => {
         {/* <NavLink to="/" onClick={closeMenu}>
             <span className="logo-title">Boulder Bike Race</span>
         </NavLink> */}
-        <span className="logo-title"><span className="highlight">Boulder Bike Race</span></span>
+        <span className="logo-title"><span className="highlight">Boulder Bike Tour</span></span>
         
       </div>
 

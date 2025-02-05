@@ -1,14 +1,11 @@
 import React from "react";
-// import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import '../pages/Home.css';
-
 
 import CountdownTimer from "../components/CountdownTimer";
 
 import raceVideo from '../assets/race.mp4';
 import map from '../assets/map.jpg';
-// import boulderLogo from "../assets/boulder_logo.svg";
 
 const HomePage = () => {
     return(
@@ -21,7 +18,7 @@ const HomePage = () => {
                 <header className="App-header">
                 <h1 className="title">
                     Boulder <br />
-                    Bike Race
+                    Bike Tour
                 </h1>
                     {/* <img src={boulderLogo} alt="Boulder Bike Tour Logo" className="logo" /> */}
                 </header>

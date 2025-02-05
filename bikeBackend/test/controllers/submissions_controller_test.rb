@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SubmissionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @submission = Submission.create!(
+    @submission = Submission.create!( # new test submission in database
       first_name: "John",
       last_name: "Doe",
       email: "john@example.com",
@@ -10,18 +10,18 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
     )
   end
 
-  test "should get index" do
-    get submissions_url
-    assert_response :success
-    json_response = JSON.parse(@response.body)
+  test "should get index" do # retrieves all submissions
+    get submissions_url # get req to api
+    assert_response :success # check if response is successful
+    json_response = JSON.parse(@response.body) # parse response body
     assert json_response.is_a?(Array), "Response should be an array"
-    assert_not_empty json_response, "Response should contain submissions"
+    assert_not_empty json_response, "Response should contain submissions" # atleast one submission exists
   end
 
-  test "should show submission" do
-    get submission_url(@submission)
+  test "should show submission" do # retrieves a single submission
+    get submission_url(@submission) # GET request to /submissions/:id
     assert_response :success
-    json_response = JSON.parse(@response.body)
+    json_response = JSON.parse(@response.body) #checks return submission matches test submission
     assert_equal @submission.id, json_response["id"], "Submission ID should match"
     assert_equal @submission.first_name, json_response["first_name"], "First name should match"
     assert_equal @submission.last_name, json_response["last_name"], "Last name should match"
@@ -30,7 +30,7 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create submission" do
-    assert_difference('Submission.count', 1) do
+    assert_difference('Submission.count', 1) do # checks new submission was added
       post submissions_url, params: { submission: {
         first_name: "Jane",
         last_name: "Smith",
@@ -42,7 +42,7 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not create submission with invalid email" do
-    assert_no_difference('Submission.count') do
+    assert_no_difference('Submission.count') do # ensures the submission is not saved
       post submissions_url, params: { submission: {
         first_name: "Invalid",
         last_name: "User",
@@ -50,7 +50,7 @@ class SubmissionsControllerTest < ActionDispatch::IntegrationTest
         slogan: "Invalid email test"
       }}
     end
-    assert_response :unprocessable_entity
+    assert_response :unprocessable_entity #422 error response
   end
 
   test "should not create submission with missing fields" do

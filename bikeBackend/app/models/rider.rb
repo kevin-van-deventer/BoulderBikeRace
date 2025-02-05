@@ -1,6 +1,6 @@
 class Rider < ApplicationRecord
 
-    before_save :sanitize_inputs
+    before_save :sanitize_inputs # Sanitize inputs before saving to database, no unsafe text is saved
 
     validates :first_name, :last_name, :city, presence: true
     validates :latitude, :longitude, presence: true, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }

@@ -5,7 +5,7 @@ import '../pages/Photos.css';
 
 // lightbox library
 import ReactImageLightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // Import the styles for the lightbox
+import 'react-image-lightbox/style.css';
 
 const PhotosPage = () => {
   const [photos, setPhotos] = useState([]);

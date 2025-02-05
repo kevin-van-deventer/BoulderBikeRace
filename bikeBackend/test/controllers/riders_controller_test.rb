@@ -5,7 +5,7 @@ class RidersControllerTest < ActionDispatch::IntegrationTest
     @rider = Rider.create!(first_name: "John", last_name: "Doe", city: "New York", latitude: 40.7128, longitude: -74.0060)
   end
 
-  test "should get index" do
+  test "should get index" do # checks all riders
     get riders_url
     assert_response :success
     json_response = JSON.parse(@response.body)
@@ -13,7 +13,7 @@ class RidersControllerTest < ActionDispatch::IntegrationTest
     assert_not_empty json_response, "Response should contain riders"
   end
 
-  test "should show rider" do
+  test "should show rider" do # shows a single rider
     get rider_url(@rider)
     assert_response :success
     json_response = JSON.parse(@response.body)
