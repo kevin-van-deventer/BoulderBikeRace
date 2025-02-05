@@ -53,7 +53,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar />  {/* global components */}
+      <div>
+          {error && <div className="error-message">{error}</div>}
+          {/* display when error is not empty */}
+      </div>
+        <NavBar />  {/* global component */}
         <Routes> {/* wraps routes in router */}
           <Route path="/" element={<HomePage />} />
           <Route path="/slogans" element={<SloganPage submissions={submissions} addSlogan={addSlogan}/>} /> {/*pass props to route/page */}

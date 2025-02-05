@@ -2,10 +2,17 @@ require 'test_helper'
 require 'mocha/minitest' # mocking API calls
 require 'net/http'
 
+# Mocking using stubs
+# object → The object whose method you want to stub.
+# stubs(:method_name) → Replaces the actual method with a stub.
+# returns(value) → Specifies the value that should be returned when the stubbed method is called.
+
 class PhotosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @flickr_service_mock = mock() # mock object instead of call real api
     FlickrService.stubs(:new).returns(@flickr_service_mock)
+    # → When FlickrService.new is called, it returns the mock
+    # object @flickr_service_mock instead of calling the real service.
   end
 
   test "should fetch photos from Flickr API successfully" do
@@ -39,8 +46,8 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
     sample_response = {
       'photos' => {
         'photo' => [
-          { 'id' => '1', 'title' => 'Valid Photo', 'server' => '123', 'secret' => 'abc' },
-          { 'id' => '2', 'title' => 'Broken Photo', 'server' => '456', 'secret' => 'def' }
+          { 'id' => '1', 'title' => 'Valid Photo', 'server' => '123', 'secret' => 'abc' }, # valid
+          { 'id' => '2', 'title' => 'Broken Photo', 'server' => '456', 'secret' => 'def' } # broken
         ]
       }
     }
@@ -53,6 +60,7 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
     json_response = JSON.parse(@response.body)
     assert_equal 1, json_response.size, "Only valid photos should be included"
     assert_equal "1", json_response.first["id"], "Valid photo should be included"
+    assert json_response.none? { |photo| photo["id"] == "2" }, "Broken photo with ID '2' should be removed"
   end
 
 end

@@ -42,19 +42,19 @@ const HomePage = () => {
                     <div className="card">
                         <h3 className="card-title"><span className="highlight">Contestants</span></h3>
                         <p className="card-paragraph">
-                        Join the bike race to stand a chance to win big this year.
+                            Join the bike race to stand a chance to win big this year.
                         </p>
                     </div>
                     <div className="card">
                         <h3 className="card-title"><span className="highlight">Slogan Contest</span></h3>
                         <p className="card-paragraph">
-                        Cycle into the slogan competition and win a new Scott 25A Bicycle.
+                            Cycle into the slogan competition and win a new Scott 25A Bicycle.
                         </p>
                     </div>
                     <div className="card">
                         <h3 className="card-title"><span className="highlight">Gallery</span></h3>
                         <p className="card-paragraph">
-                        Visit our gallery page to experience previous years races and see what youre missing out on.
+                            Visit our gallery page to experience previous years races and see what youre missing out on.
                         </p>
                     </div>
                 </div>
@@ -65,12 +65,12 @@ const HomePage = () => {
                 <div className="new-section-content">
                     <h2 className="new-section-header">Ride Boulder at its Best</h2>
                     <p className="new-section-paragraph2">
-                    Pedal alongside your fellow riders and experience the thrill of cycling at the foot of the majestic Rocky Mountains. 
-                    Renowned for its breathtaking landscapes and high-altitude challenge, the <span className="highlight">Boulder Bike Tour </span> 
-                     offers an unparalleled backdrop for this prestigious event. As you conquer the scenic roads of Colorado, 
-                    you'll be immersed in the stunning natural beauty, from rolling hills to panoramic mountain views. 
-                    Join us for the <span className="highlight">Boulder Bike Tour</span> and be part of a decade-long tradition of endurance, 
-                    excitement, and inspiration!
+                        Pedal alongside your fellow riders and experience the thrill of cycling at the foot of the majestic <span className="highlight">Rocky Mountains</span>. 
+                        Renowned for its breathtaking landscapes and high-altitude challenge, the Boulder Bike Tour 
+                        offers an unparalleled backdrop for this <span className="highlight">prestigious event</span>. As you conquer the scenic roads of <span className="highlight">Colorado</span>, 
+                        you'll be immersed in the stunning natural beauty, from rolling hills to panoramic mountain views. 
+                        Join us for the Boulder Bike Tour and be part of a <span className="highlight">decade-long</span> tradition of endurance, 
+                        excitement, and inspiration!
                     </p>
                     <div className="new-section-cards">
                         <div className="card">
@@ -96,10 +96,17 @@ const HomePage = () => {
                 <div className="new-section-content">
                     <h2 className="new-section-header">Register Today - <span className="highlight">10% Discount</span></h2>
                     <p className="new-section-paragraph3">
-                    Registartions are now <span className="highlight">Open </span> 
-                    until <span className="highlight">1 April</span> or register at the Event.
+                        Registartions are now <span className="highlight">Open </span> 
+                        until <span className="highlight">1 April</span> or register at the Event.
                     </p>
-                    <button className="regButton" onClick={() => window.location.href = "mailto:boulderrace@gmail.com?subject=Race Registration&body=Hello, I would like to register for the Boulder Bike Tour. (First Name) and (Last Name) and your (City) "}>Register Via Email</button>
+                    <button className="regButton"
+                        onClick={() => {
+                            const mailtoLink = "mailto:boulderrace@gmail.com?subject=Race Registration&body=Hello, I would like to register for the Boulder Bike Tour. (First Name) and (Last Name) and your (City)";
+                            window.open(mailtoLink, "_blank");
+                        }}
+                    >
+                        Register Via Email
+                    </button>
                 </div>
             </div>
         </div>
